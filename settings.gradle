@@ -1,1 +1,2 @@
 include ':chaotic'
+include ':widgets'
