@@ -1,5 +1,6 @@
 package top.techqi.chaotic.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.v7.app.AppCompatActivity
@@ -14,8 +15,14 @@ abstract class BaseActivity : AppCompatActivity() {
     @Suppress("PropertyName", "HasPlatformType")
     protected open val TAG = javaClass.simpleName
 
+    @Suppress("PropertyName", "HasPlatformType")
+    protected open val NAME by lazy { TAG }
+
     @Suppress("PropertyName")
     protected open val DEBUG = BuildConfig.DEBUG
+
+    @Suppress("PropertyName")
+    val SOURCE: String? by lazy { intent.getStringExtra(EXTRA_SOURCE) }
 
     var created = false
         private set
@@ -80,5 +87,19 @@ abstract class BaseActivity : AppCompatActivity() {
         if (DEBUG) LogU.vv(TAG, "onRestart")
         super.onRestart()
         restarted++
+    }
+
+    override fun startActivityForResult(intent: Intent, requestCode: Int) {
+        intent.putExtra(EXTRA_SOURCE, NAME)
+        super.startActivityForResult(intent, requestCode)
+    }
+
+    override fun startActivities(intents: Array<out Intent>, options: Bundle?) {
+        intents.forEach { it.putExtra(EXTRA_SOURCE, NAME) }
+        super.startActivities(intents, options)
+    }
+
+    companion object {
+        const val EXTRA_SOURCE = "extra_source"
     }
 }
