@@ -13,5 +13,6 @@ extensions.kotlinVersion = '1.2.70-eap-40'
 extensions.supportVersion = "26.1.0"
 
 extensions.dependentLibrayies = [
-        kotlinStd: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+        kotlinStd: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+        appCompat: "com.android.support:appcompat-v7:$supportVersion"
 ]
