@@ -1,0 +1,17 @@
+extensions.javaVersion = JavaVersion.VERSION_1_8
+
+extensions.buildToolsVersion = '27.0.3'
+extensions.compileSdkVersion = 26
+extensions.targetSdkVersion = 23
+extensions.minSdkVersion = 19
+
+extensions.versionCode = 1
+extensions.versionName = '1.0'
+
+extensions.kotlinVersion = '1.2.70-eap-40'
+
+extensions.supportVersion = "26.1.0"
+
+extensions.dependentLibrayies = [
+        kotlinStd: "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+]

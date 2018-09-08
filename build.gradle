@@ -1,0 +1,26 @@
+buildscript {
+    apply from: "$rootDir/options.gradle"
+
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha08'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/kotlin/kotlin-eap' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
