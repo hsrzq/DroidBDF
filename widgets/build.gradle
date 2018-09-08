@@ -24,4 +24,5 @@ dependencies {
 
     implementation rootProject.dependentLibrayies.kotlinStd
     implementation rootProject.dependentLibrayies.appCompat
+    implementation rootProject.dependentLibrayies.recyclerView
 }
