@@ -8,8 +8,11 @@ import android.view.ViewGroup
 /**
  * RecyclerView 视图绑定器
  */
-@Suppress("unused", "UNUSED_PARAMETER", "MemberVisibilityCanPrivate", "UNCHECKED_CAST")
-abstract class RecyclerBinder<I, VH : RecyclerView.ViewHolder>(protected val context: Context) {
+@Suppress("unused", "UNCHECKED_CAST")
+abstract class RecyclerBinder<I, VH : RecyclerView.ViewHolder>(
+        protected val context: Context,
+        protected val itemClick: OnItemClickListener<I>? = null,
+        protected val itemPress: OnItemPressListener<I>? = null) {
     internal fun createViewHolder(inflater: LayoutInflater, parent: ViewGroup): VH {
         return onCreateHolder(inflater, parent)
     }
